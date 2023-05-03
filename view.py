@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(572, 221)
+        MainWindow.resize(579, 212)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.buttonExit = QtWidgets.QPushButton(self.centralwidget)
@@ -55,26 +55,30 @@ class Ui_MainWindow(object):
         self.outputWater.setObjectName("outputWater")
         self.outputTotal = QtWidgets.QLabel(self.centralwidget)
         self.outputTotal.setGeometry(QtCore.QRect(330, 10, 211, 151))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.outputTotal.sizePolicy().hasHeightForWidth())
+        self.outputTotal.setSizePolicy(sizePolicy)
+        self.outputTotal.setMinimumSize(QtCore.QSize(211, 151))
+        self.outputTotal.setMaximumSize(QtCore.QSize(211, 151))
         self.outputTotal.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTop|QtCore.Qt.AlignTrailing)
         self.outputTotal.setObjectName("outputTotal")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 572, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 579, 26))
         self.menubar.setObjectName("menubar")
-        self.menuConcessions = QtWidgets.QMenu(self.menubar)
-        self.menuConcessions.setObjectName("menuConcessions")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-        self.menubar.addAction(self.menuConcessions.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Concessions"))
         self.buttonExit.setText(_translate("MainWindow", "Exit"))
         self.buttonCookieMinus.setText(_translate("MainWindow", "Cookie -"))
         self.buttonSandwichPlus.setText(_translate("MainWindow", "Sandwich +"))
@@ -87,7 +91,6 @@ class Ui_MainWindow(object):
         self.outputSandwich.setText(_translate("MainWindow", "Sandwiches"))
         self.outputWater.setText(_translate("MainWindow", "Waters"))
         self.outputTotal.setText(_translate("MainWindow", "Total purchase"))
-        self.menuConcessions.setTitle(_translate("MainWindow", "Concessions"))
 
 
 if __name__ == "__main__":
