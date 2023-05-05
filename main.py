@@ -2,6 +2,7 @@ from controller import *
 
 
 def main():
+    #main function to start concession application
     app = QApplication([])
     window = Controller()
     window.show()
