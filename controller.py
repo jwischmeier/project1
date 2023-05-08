@@ -59,80 +59,112 @@ class Controller(QMainWindow, Ui_MainWindow):
 
     def water_tally(self):
         #adds items based on addWater box to water count
-        self.water += int(self.addWater.text())
-        if self.water < 0:
-            self.water = 0
-        self.outputWater.setText(f'{self.water} waters')
-        self.output_display()
+        try:
+            self.water += int(self.addWater.text())
+            if self.water < 0:
+                self.water = 0
+            self.outputWater.setText(f'{self.water} waters')
+            self.output_display()
+        except:
+            print('Error in water plus calculation')
+            exit()
 
     def water_tally_minus(self):
         #subtracts items based on addWater box from water count
-        self.water -= int(self.addWater.text())
-        if self.water < 0:
-            self.water = 0
-        self.outputWater.setText(f'{self.water} waters')
-        self.output_display()
+        try:
+            self.water -= int(self.addWater.text())
+            if self.water < 0:
+                self.water = 0
+            self.outputWater.setText(f'{self.water} waters')
+            self.output_display()
+        except:
+            print('Error in water minus calculation')
+            exit()
 
     def cookie_tally(self):
         #adds items based on addCookie box to cookie count
-        self.cookie += int(self.addCookie.text())
-        if self.cookie < 0:
-            self.cookie = 0
-        self.outputCookie.setText(f'{self.cookie} cookies')
-        self.output_display()
+        try:
+            self.cookie += int(self.addCookie.text())
+            if self.cookie < 0:
+                self.cookie = 0
+            self.outputCookie.setText(f'{self.cookie} cookies')
+            self.output_display()
+        except:
+            print('Error in cookie plus calculation')
+            exit()
 
     def cookie_tally_minus(self):
         #subtracts items based on addCookie box from cookie count
-        self.cookie -= int(self.addCookie.text())
-        if self.cookie < 0:
-            self.cookie = 0
-        self.outputCookie.setText(f'{self.cookie} cookies')
-        self.output_display()
+        try:
+            self.cookie -= int(self.addCookie.text())
+            if self.cookie < 0:
+                self.cookie = 0
+            self.outputCookie.setText(f'{self.cookie} cookies')
+            self.output_display()
+        except:
+            print('Error in cookie minus calculation')
+            exit()
 
     def sandwich_tally(self):
         #adds items based on addSandwich box to sandwich count
-        self.sandwich += int(self.addSandwich.text())
-        if self.sandwich < 0:
-            self.sandwich = 0
-        self.outputSandwich.setText(f'{self.sandwich} sandwiches')
-        self.output_display()
+        try:
+            self.sandwich += int(self.addSandwich.text())
+            if self.sandwich < 0:
+                self.sandwich = 0
+            self.outputSandwich.setText(f'{self.sandwich} sandwiches')
+            self.output_display()
+        except:
+            print('Error in sandwich plus calculation')
+            error()
 
     def sandwich_tally_minus(self):
         #subtracts items based on addSandwich from sandwich count
-        self.sandwich -= int(self.addSandwich.text())
-        if self.sandwich < 0:
-            self.sandwich = 0
-        self.outputSandwich.setText(f'{self.sandwich} sandwiches')
-        self.output_display()
+        try:
+            self.sandwich -= int(self.addSandwich.text())
+            if self.sandwich < 0:
+                self.sandwich = 0
+            self.outputSandwich.setText(f'{self.sandwich} sandwiches')
+            self.output_display()
+        except:
+            print('Error in sandwich minus calculation')
+            error()
 
     def clear(self):
         #clears all output boxes and sets default addition of each item to 1
-        self.cookie = 0
-        self.sandwich = 0
-        self.water = 0
-        self.output_display()
-        self.addWater.setText('1')
-        self.addCookie.setText('1')
-        self.addSandwich.setText('1')
-        self.outputCookie.setText(f'{self.cookie} cookies')
-        self.outputWater.setText(f'{self.water} waters')
-        self.outputSandwich.setText(f'{self.sandwich} sandwiches')
+        try:
+            self.cookie = 0
+            self.sandwich = 0
+            self.water = 0
+            self.output_display()
+            self.addWater.setText('1')
+            self.addCookie.setText('1')
+            self.addSandwich.setText('1')
+            self.outputCookie.setText(f'{self.cookie} cookies')
+            self.outputWater.setText(f'{self.water} waters')
+            self.outputSandwich.setText(f'{self.sandwich} sandwiches')
+        except:
+            print('Error clearing screen')
+            exit()
 
     def output_display(self):
         #sets output based on user entry in a receipt format
-        self.cookieTotal = self.cookie * self.cookieCost
-        self.sandwichTotal = self.sandwich * self.sandwichCost
-        self.waterTotal = self.water * self.waterCost
-        self.totalItems = self.cookie + self.sandwich + self.water
-        self.subTotal = self.cookieTotal + self.sandwichTotal + self.waterTotal
-        self.tax = self.subTotal * .07
-        self.total = self.subTotal + self.tax
-        self.outputTotal.setText(f'Cookies x{self.cookie}\t\t${self.cookieTotal:.2f}'
-                                 f'\nSandwiches x{self.sandwich}\t\t${self.sandwichTotal:.2f}'
-                                 f'\nWater x{self.water}\t\t${self.waterTotal:.2f}'
-                                 f'\nTotal Items\t\t\t\t\t{self.totalItems}'
-                                 f'\n'
-                                 f'\nSubtotal\t\t${self.subTotal:.2f}'
-                                 f'\nTax (7%)\t\t${self.tax:.2f}'
-                                 f'\n--------------------------------'
-                                 f'\nTotal\t\t${self.total:.2f}')
+        try:
+            self.cookieTotal = self.cookie * self.cookieCost
+            self.sandwichTotal = self.sandwich * self.sandwichCost
+            self.waterTotal = self.water * self.waterCost
+            self.totalItems = self.cookie + self.sandwich + self.water
+            self.subTotal = self.cookieTotal + self.sandwichTotal + self.waterTotal
+            self.tax = self.subTotal * .07
+            self.total = self.subTotal + self.tax
+            self.outputTotal.setText(f'Cookies x{self.cookie}\t\t${self.cookieTotal:.2f}'
+                                     f'\nSandwiches x{self.sandwich}\t\t${self.sandwichTotal:.2f}'
+                                     f'\nWater x{self.water}\t\t${self.waterTotal:.2f}'
+                                     f'\nTotal Items\t\t\t\t\t{self.totalItems}'
+                                     f'\n'
+                                     f'\nSubtotal\t\t${self.subTotal:.2f}'
+                                     f'\nTax (7%)\t\t${self.tax:.2f}'
+                                     f'\n--------------------------------'
+                                     f'\nTotal\t\t${self.total:.2f}')
+        except:
+            print('Error when producing output')
+            exit()
