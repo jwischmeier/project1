@@ -66,8 +66,8 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.outputWater.setText(f'{self.water} waters')
             self.output_display()
         except:
-            print('Error in water plus calculation')
-            exit()
+            self.outputTotal.setText(f'Integer must be used in\nwater plus calculation')
+            self.addWater.setText('1')
 
     def water_tally_minus(self):
         #subtracts items based on addWater box from water count
@@ -78,8 +78,8 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.outputWater.setText(f'{self.water} waters')
             self.output_display()
         except:
-            print('Error in water minus calculation')
-            exit()
+            self.outputTotal.setText(f'Integer must be used in\nwater minus calculation')
+            self.addWater.setText('1')
 
     def cookie_tally(self):
         #adds items based on addCookie box to cookie count
@@ -90,8 +90,8 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.outputCookie.setText(f'{self.cookie} cookies')
             self.output_display()
         except:
-            print('Error in cookie plus calculation')
-            exit()
+            self.outputTotal.setText(f'Integer must be used in\ncookie plus calculation')
+            self.addCookie.setText('1')
 
     def cookie_tally_minus(self):
         #subtracts items based on addCookie box from cookie count
@@ -102,8 +102,8 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.outputCookie.setText(f'{self.cookie} cookies')
             self.output_display()
         except:
-            print('Error in cookie minus calculation')
-            exit()
+            self.outputTotal.setText(f'Integer must be used in\ncookie minus calculation')
+            self.addCookie.setText('1')
 
     def sandwich_tally(self):
         #adds items based on addSandwich box to sandwich count
@@ -114,8 +114,8 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.outputSandwich.setText(f'{self.sandwich} sandwiches')
             self.output_display()
         except:
-            print('Error in sandwich plus calculation')
-            error()
+            self.outputTotal.setText(f'Integer must be used in\nsandwich plus calculation')
+            self.addSandwich.setText('1')
 
     def sandwich_tally_minus(self):
         #subtracts items based on addSandwich from sandwich count
@@ -126,8 +126,8 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.outputSandwich.setText(f'{self.sandwich} sandwiches')
             self.output_display()
         except:
-            print('Error in sandwich minus calculation')
-            error()
+            self.outputTotal.setText(f'Integer must be used in\nsandwich minus calculation')
+            self.addSandwich.setText('1')
 
     def clear(self):
         #clears all output boxes and sets default addition of each item to 1
@@ -143,8 +143,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.outputWater.setText(f'{self.water} waters')
             self.outputSandwich.setText(f'{self.sandwich} sandwiches')
         except:
-            print('Error clearing screen')
-            exit()
+            self.outputTotal.setText('Error clearing screen')
 
     def output_display(self):
         #sets output based on user entry in a receipt format
@@ -166,5 +165,4 @@ class Controller(QMainWindow, Ui_MainWindow):
                                      f'\n--------------------------------'
                                      f'\nTotal\t\t${self.total:.2f}')
         except:
-            print('Error when producing output')
-            exit()
+            self.outputTotal.setText('Error when producing output')
